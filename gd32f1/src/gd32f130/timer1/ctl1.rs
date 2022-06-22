@@ -1,0 +1,261 @@
+#[doc = "Register `CTL1` reader"]
+pub struct R(crate::R<CTL1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTL1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<CTL1_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CTL1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTL1` writer"]
+pub struct W(crate::W<CTL1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTL1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CTL1_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CTL1_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Channel 0 trigger input selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TI0S_A {
+    #[doc = "0: The CH0 pin input is selected as channel 0 trigger input"]
+    NORMAL = 0,
+    #[doc = "1: The XOR of CH0, CH1 and CH2 pins are selected as channel 0 trigger input"]
+    XOR = 1,
+}
+impl From<TI0S_A> for bool {
+    #[inline(always)]
+    fn from(variant: TI0S_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `TI0S` reader - Channel 0 trigger input selection"]
+pub type TI0S_R = crate::BitReader<TI0S_A>;
+impl TI0S_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TI0S_A {
+        match self.bits {
+            false => TI0S_A::NORMAL,
+            true => TI0S_A::XOR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NORMAL`"]
+    #[inline(always)]
+    pub fn is_normal(&self) -> bool {
+        *self == TI0S_A::NORMAL
+    }
+    #[doc = "Checks if the value of the field is `XOR`"]
+    #[inline(always)]
+    pub fn is_xor(&self) -> bool {
+        *self == TI0S_A::XOR
+    }
+}
+#[doc = "Field `TI0S` writer - Channel 0 trigger input selection"]
+pub type TI0S_W<'a> = crate::BitWriter<'a, u16, CTL1_SPEC, TI0S_A, 7>;
+impl<'a> TI0S_W<'a> {
+    #[doc = "The CH0 pin input is selected as channel 0 trigger input"]
+    #[inline(always)]
+    pub fn normal(self) -> &'a mut W {
+        self.variant(TI0S_A::NORMAL)
+    }
+    #[doc = "The XOR of CH0, CH1 and CH2 pins are selected as channel 0 trigger input"]
+    #[inline(always)]
+    pub fn xor(self) -> &'a mut W {
+        self.variant(TI0S_A::XOR)
+    }
+}
+#[doc = "Master mode control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum MMC_A {
+    #[doc = "0: Use UPG bit from SWEVG register"]
+    RESET = 0,
+    #[doc = "1: Use CEN bit from CTL0 register"]
+    ENABLE = 1,
+    #[doc = "2: Use the update event"]
+    UPDATE = 2,
+}
+impl From<MMC_A> for u8 {
+    #[inline(always)]
+    fn from(variant: MMC_A) -> Self {
+        variant as _
+    }
+}
+#[doc = "Field `MMC` reader - Master mode control"]
+pub type MMC_R = crate::FieldReader<u8, MMC_A>;
+impl MMC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> Option<MMC_A> {
+        match self.bits {
+            0 => Some(MMC_A::RESET),
+            1 => Some(MMC_A::ENABLE),
+            2 => Some(MMC_A::UPDATE),
+            _ => None,
+        }
+    }
+    #[doc = "Checks if the value of the field is `RESET`"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == MMC_A::RESET
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == MMC_A::ENABLE
+    }
+    #[doc = "Checks if the value of the field is `UPDATE`"]
+    #[inline(always)]
+    pub fn is_update(&self) -> bool {
+        *self == MMC_A::UPDATE
+    }
+}
+#[doc = "Field `MMC` writer - Master mode control"]
+pub type MMC_W<'a> = crate::FieldWriter<'a, u16, CTL1_SPEC, u8, MMC_A, 3, 4>;
+impl<'a> MMC_W<'a> {
+    #[doc = "Use UPG bit from SWEVG register"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(MMC_A::RESET)
+    }
+    #[doc = "Use CEN bit from CTL0 register"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(MMC_A::ENABLE)
+    }
+    #[doc = "Use the update event"]
+    #[inline(always)]
+    pub fn update(self) -> &'a mut W {
+        self.variant(MMC_A::UPDATE)
+    }
+}
+#[doc = "DMA request source selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DMAS_A {
+    #[doc = "0: CCx DMA request sent when CCx event occurs"]
+    ONCOMPARE = 0,
+    #[doc = "1: CCx DMA request sent when update event occurs"]
+    ONUPDATE = 1,
+}
+impl From<DMAS_A> for bool {
+    #[inline(always)]
+    fn from(variant: DMAS_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `DMAS` reader - DMA request source selection"]
+pub type DMAS_R = crate::BitReader<DMAS_A>;
+impl DMAS_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DMAS_A {
+        match self.bits {
+            false => DMAS_A::ONCOMPARE,
+            true => DMAS_A::ONUPDATE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ONCOMPARE`"]
+    #[inline(always)]
+    pub fn is_on_compare(&self) -> bool {
+        *self == DMAS_A::ONCOMPARE
+    }
+    #[doc = "Checks if the value of the field is `ONUPDATE`"]
+    #[inline(always)]
+    pub fn is_on_update(&self) -> bool {
+        *self == DMAS_A::ONUPDATE
+    }
+}
+#[doc = "Field `DMAS` writer - DMA request source selection"]
+pub type DMAS_W<'a> = crate::BitWriter<'a, u16, CTL1_SPEC, DMAS_A, 3>;
+impl<'a> DMAS_W<'a> {
+    #[doc = "CCx DMA request sent when CCx event occurs"]
+    #[inline(always)]
+    pub fn on_compare(self) -> &'a mut W {
+        self.variant(DMAS_A::ONCOMPARE)
+    }
+    #[doc = "CCx DMA request sent when update event occurs"]
+    #[inline(always)]
+    pub fn on_update(self) -> &'a mut W {
+        self.variant(DMAS_A::ONUPDATE)
+    }
+}
+impl R {
+    #[doc = "Bit 7 - Channel 0 trigger input selection"]
+    #[inline(always)]
+    pub fn ti0s(&self) -> TI0S_R {
+        TI0S_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bits 4:6 - Master mode control"]
+    #[inline(always)]
+    pub fn mmc(&self) -> MMC_R {
+        MMC_R::new(((self.bits >> 4) & 7) as u8)
+    }
+    #[doc = "Bit 3 - DMA request source selection"]
+    #[inline(always)]
+    pub fn dmas(&self) -> DMAS_R {
+        DMAS_R::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 7 - Channel 0 trigger input selection"]
+    #[inline(always)]
+    pub fn ti0s(&mut self) -> TI0S_W {
+        TI0S_W::new(self)
+    }
+    #[doc = "Bits 4:6 - Master mode control"]
+    #[inline(always)]
+    pub fn mmc(&mut self) -> MMC_W {
+        MMC_W::new(self)
+    }
+    #[doc = "Bit 3 - DMA request source selection"]
+    #[inline(always)]
+    pub fn dmas(&mut self) -> DMAS_W {
+        DMAS_W::new(self)
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u16) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "control register 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctl1](index.html) module"]
+pub struct CTL1_SPEC;
+impl crate::RegisterSpec for CTL1_SPEC {
+    type Ux = u16;
+}
+#[doc = "`read()` method returns [ctl1::R](R) reader structure"]
+impl crate::Readable for CTL1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctl1::W](W) writer structure"]
+impl crate::Writable for CTL1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTL1 to value 0"]
+impl crate::Resettable for CTL1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

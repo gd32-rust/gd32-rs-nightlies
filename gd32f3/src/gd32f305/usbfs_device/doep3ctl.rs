@@ -1,0 +1,206 @@
+#[doc = "Register `DOEP3CTL` reader"]
+pub struct R(crate::R<DOEP3CTL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DOEP3CTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<DOEP3CTL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DOEP3CTL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DOEP3CTL` writer"]
+pub struct W(crate::W<DOEP3CTL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DOEP3CTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<DOEP3CTL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<DOEP3CTL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `EPEN` reader - Endpoint enable"]
+pub type EPEN_R = crate::BitReader<bool>;
+#[doc = "Field `EPEN` writer - Endpoint enable"]
+pub type EPEN_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 31>;
+#[doc = "Field `EPD` reader - Endpoint disable"]
+pub type EPD_R = crate::BitReader<bool>;
+#[doc = "Field `EPD` writer - Endpoint disable"]
+pub type EPD_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 30>;
+#[doc = "Field `SD1PID_SODDFRM` writer - SD1PID/SODDFRM"]
+pub type SD1PID_SODDFRM_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 29>;
+#[doc = "Field `SD0PID_SEVENFRM` writer - SD0PID/SEVENFRM"]
+pub type SD0PID_SEVENFRM_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 28>;
+#[doc = "Field `SNAK` writer - Set NAK"]
+pub type SNAK_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 27>;
+#[doc = "Field `CNAK` writer - Clear NAK"]
+pub type CNAK_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 26>;
+#[doc = "Field `STALL` reader - STALL handshake"]
+pub type STALL_R = crate::BitReader<bool>;
+#[doc = "Field `STALL` writer - STALL handshake"]
+pub type STALL_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 21>;
+#[doc = "Field `SNOOP` reader - Snoop mode"]
+pub type SNOOP_R = crate::BitReader<bool>;
+#[doc = "Field `SNOOP` writer - Snoop mode"]
+pub type SNOOP_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 20>;
+#[doc = "Field `EPTYPE` reader - Endpoint type"]
+pub type EPTYPE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `EPTYPE` writer - Endpoint type"]
+pub type EPTYPE_W<'a> = crate::FieldWriter<'a, u32, DOEP3CTL_SPEC, u8, u8, 2, 18>;
+#[doc = "Field `NAKS` reader - NAK status"]
+pub type NAKS_R = crate::BitReader<bool>;
+#[doc = "Field `EOFRM_DPID` reader - EOFRM/DPID"]
+pub type EOFRM_DPID_R = crate::BitReader<bool>;
+#[doc = "Field `EPACT` reader - Endpoint active"]
+pub type EPACT_R = crate::BitReader<bool>;
+#[doc = "Field `EPACT` writer - Endpoint active"]
+pub type EPACT_W<'a> = crate::BitWriter<'a, u32, DOEP3CTL_SPEC, bool, 15>;
+#[doc = "Field `MPL` reader - maximum packet length"]
+pub type MPL_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `MPL` writer - maximum packet length"]
+pub type MPL_W<'a> = crate::FieldWriter<'a, u32, DOEP3CTL_SPEC, u16, u16, 11, 0>;
+impl R {
+    #[doc = "Bit 31 - Endpoint enable"]
+    #[inline(always)]
+    pub fn epen(&self) -> EPEN_R {
+        EPEN_R::new(((self.bits >> 31) & 1) != 0)
+    }
+    #[doc = "Bit 30 - Endpoint disable"]
+    #[inline(always)]
+    pub fn epd(&self) -> EPD_R {
+        EPD_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 21 - STALL handshake"]
+    #[inline(always)]
+    pub fn stall(&self) -> STALL_R {
+        STALL_R::new(((self.bits >> 21) & 1) != 0)
+    }
+    #[doc = "Bit 20 - Snoop mode"]
+    #[inline(always)]
+    pub fn snoop(&self) -> SNOOP_R {
+        SNOOP_R::new(((self.bits >> 20) & 1) != 0)
+    }
+    #[doc = "Bits 18:19 - Endpoint type"]
+    #[inline(always)]
+    pub fn eptype(&self) -> EPTYPE_R {
+        EPTYPE_R::new(((self.bits >> 18) & 3) as u8)
+    }
+    #[doc = "Bit 17 - NAK status"]
+    #[inline(always)]
+    pub fn naks(&self) -> NAKS_R {
+        NAKS_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    #[doc = "Bit 16 - EOFRM/DPID"]
+    #[inline(always)]
+    pub fn eofrm_dpid(&self) -> EOFRM_DPID_R {
+        EOFRM_DPID_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    #[doc = "Bit 15 - Endpoint active"]
+    #[inline(always)]
+    pub fn epact(&self) -> EPACT_R {
+        EPACT_R::new(((self.bits >> 15) & 1) != 0)
+    }
+    #[doc = "Bits 0:10 - maximum packet length"]
+    #[inline(always)]
+    pub fn mpl(&self) -> MPL_R {
+        MPL_R::new((self.bits & 0x07ff) as u16)
+    }
+}
+impl W {
+    #[doc = "Bit 31 - Endpoint enable"]
+    #[inline(always)]
+    pub fn epen(&mut self) -> EPEN_W {
+        EPEN_W::new(self)
+    }
+    #[doc = "Bit 30 - Endpoint disable"]
+    #[inline(always)]
+    pub fn epd(&mut self) -> EPD_W {
+        EPD_W::new(self)
+    }
+    #[doc = "Bit 29 - SD1PID/SODDFRM"]
+    #[inline(always)]
+    pub fn sd1pid_soddfrm(&mut self) -> SD1PID_SODDFRM_W {
+        SD1PID_SODDFRM_W::new(self)
+    }
+    #[doc = "Bit 28 - SD0PID/SEVENFRM"]
+    #[inline(always)]
+    pub fn sd0pid_sevenfrm(&mut self) -> SD0PID_SEVENFRM_W {
+        SD0PID_SEVENFRM_W::new(self)
+    }
+    #[doc = "Bit 27 - Set NAK"]
+    #[inline(always)]
+    pub fn snak(&mut self) -> SNAK_W {
+        SNAK_W::new(self)
+    }
+    #[doc = "Bit 26 - Clear NAK"]
+    #[inline(always)]
+    pub fn cnak(&mut self) -> CNAK_W {
+        CNAK_W::new(self)
+    }
+    #[doc = "Bit 21 - STALL handshake"]
+    #[inline(always)]
+    pub fn stall(&mut self) -> STALL_W {
+        STALL_W::new(self)
+    }
+    #[doc = "Bit 20 - Snoop mode"]
+    #[inline(always)]
+    pub fn snoop(&mut self) -> SNOOP_W {
+        SNOOP_W::new(self)
+    }
+    #[doc = "Bits 18:19 - Endpoint type"]
+    #[inline(always)]
+    pub fn eptype(&mut self) -> EPTYPE_W {
+        EPTYPE_W::new(self)
+    }
+    #[doc = "Bit 15 - Endpoint active"]
+    #[inline(always)]
+    pub fn epact(&mut self) -> EPACT_W {
+        EPACT_W::new(self)
+    }
+    #[doc = "Bits 0:10 - maximum packet length"]
+    #[inline(always)]
+    pub fn mpl(&mut self) -> MPL_W {
+        MPL_W::new(self)
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "device endpoint-3 control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [doep3ctl](index.html) module"]
+pub struct DOEP3CTL_SPEC;
+impl crate::RegisterSpec for DOEP3CTL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [doep3ctl::R](R) reader structure"]
+impl crate::Readable for DOEP3CTL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [doep3ctl::W](W) writer structure"]
+impl crate::Writable for DOEP3CTL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DOEP3CTL to value 0"]
+impl crate::Resettable for DOEP3CTL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

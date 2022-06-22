@@ -1,0 +1,80 @@
+#[doc = "Register `DSV` reader"]
+pub struct R(crate::R<DSV_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DSV_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<DSV_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DSV_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DSV` writer"]
+pub struct W(crate::W<DSV_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DSV_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<DSV_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<DSV_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DSLPVS` reader - Deep-sleep mode voltage select"]
+pub type DSLPVS_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DSLPVS` writer - Deep-sleep mode voltage select"]
+pub type DSLPVS_W<'a> = crate::FieldWriter<'a, u32, DSV_SPEC, u8, u8, 2, 0>;
+impl R {
+    #[doc = "Bits 0:1 - Deep-sleep mode voltage select"]
+    #[inline(always)]
+    pub fn dslpvs(&self) -> DSLPVS_R {
+        DSLPVS_R::new((self.bits & 3) as u8)
+    }
+}
+impl W {
+    #[doc = "Bits 0:1 - Deep-sleep mode voltage select"]
+    #[inline(always)]
+    pub fn dslpvs(&mut self) -> DSLPVS_W {
+        DSLPVS_W::new(self)
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Deep-sleep mode voltage register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dsv](index.html) module"]
+pub struct DSV_SPEC;
+impl crate::RegisterSpec for DSV_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dsv::R](R) reader structure"]
+impl crate::Readable for DSV_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dsv::W](W) writer structure"]
+impl crate::Writable for DSV_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DSV to value 0"]
+impl crate::Resettable for DSV_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

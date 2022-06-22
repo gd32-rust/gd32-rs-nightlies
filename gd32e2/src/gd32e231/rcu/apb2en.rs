@@ -1,0 +1,192 @@
+#[doc = "Register `APB2EN` reader"]
+pub struct R(crate::R<APB2EN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<APB2EN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<APB2EN_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<APB2EN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `APB2EN` writer"]
+pub struct W(crate::W<APB2EN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<APB2EN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<APB2EN_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<APB2EN_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DBGMCUEN` reader - DBGMCU clock enable"]
+pub type DBGMCUEN_R = crate::BitReader<bool>;
+#[doc = "Field `DBGMCUEN` writer - DBGMCU clock enable"]
+pub type DBGMCUEN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 22>;
+#[doc = "Field `TIMER16EN` reader - TIMER16 timer clock enable"]
+pub type TIMER16EN_R = crate::BitReader<bool>;
+#[doc = "Field `TIMER16EN` writer - TIMER16 timer clock enable"]
+pub type TIMER16EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 18>;
+#[doc = "Field `TIMER15EN` reader - TIMER15 timer clock enable"]
+pub type TIMER15EN_R = crate::BitReader<bool>;
+#[doc = "Field `TIMER15EN` writer - TIMER15 timer clock enable"]
+pub type TIMER15EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 17>;
+#[doc = "Field `TIMER14EN` reader - TIMER14 timer clock enable"]
+pub type TIMER14EN_R = crate::BitReader<bool>;
+#[doc = "Field `TIMER14EN` writer - TIMER14 timer clock enable"]
+pub type TIMER14EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 16>;
+#[doc = "Field `USART0EN` reader - USART0 clock enable"]
+pub type USART0EN_R = crate::BitReader<bool>;
+#[doc = "Field `USART0EN` writer - USART0 clock enable"]
+pub type USART0EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 14>;
+#[doc = "Field `SPI0EN` reader - SPI0 clock enable"]
+pub type SPI0EN_R = crate::BitReader<bool>;
+#[doc = "Field `SPI0EN` writer - SPI0 clock enable"]
+pub type SPI0EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 12>;
+#[doc = "Field `TIMER0EN` reader - TIMER0 timer clock enable"]
+pub type TIMER0EN_R = crate::BitReader<bool>;
+#[doc = "Field `TIMER0EN` writer - TIMER0 timer clock enable"]
+pub type TIMER0EN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 11>;
+#[doc = "Field `ADCEN` reader - ADC interface clock enable"]
+pub type ADCEN_R = crate::BitReader<bool>;
+#[doc = "Field `ADCEN` writer - ADC interface clock enable"]
+pub type ADCEN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 9>;
+#[doc = "Field `CFGCMPEN` reader - System configuration and comparator clock enable"]
+pub type CFGCMPEN_R = crate::BitReader<bool>;
+#[doc = "Field `CFGCMPEN` writer - System configuration and comparator clock enable"]
+pub type CFGCMPEN_W<'a> = crate::BitWriter<'a, u32, APB2EN_SPEC, bool, 0>;
+impl R {
+    #[doc = "Bit 22 - DBGMCU clock enable"]
+    #[inline(always)]
+    pub fn dbgmcuen(&self) -> DBGMCUEN_R {
+        DBGMCUEN_R::new(((self.bits >> 22) & 1) != 0)
+    }
+    #[doc = "Bit 18 - TIMER16 timer clock enable"]
+    #[inline(always)]
+    pub fn timer16en(&self) -> TIMER16EN_R {
+        TIMER16EN_R::new(((self.bits >> 18) & 1) != 0)
+    }
+    #[doc = "Bit 17 - TIMER15 timer clock enable"]
+    #[inline(always)]
+    pub fn timer15en(&self) -> TIMER15EN_R {
+        TIMER15EN_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    #[doc = "Bit 16 - TIMER14 timer clock enable"]
+    #[inline(always)]
+    pub fn timer14en(&self) -> TIMER14EN_R {
+        TIMER14EN_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    #[doc = "Bit 14 - USART0 clock enable"]
+    #[inline(always)]
+    pub fn usart0en(&self) -> USART0EN_R {
+        USART0EN_R::new(((self.bits >> 14) & 1) != 0)
+    }
+    #[doc = "Bit 12 - SPI0 clock enable"]
+    #[inline(always)]
+    pub fn spi0en(&self) -> SPI0EN_R {
+        SPI0EN_R::new(((self.bits >> 12) & 1) != 0)
+    }
+    #[doc = "Bit 11 - TIMER0 timer clock enable"]
+    #[inline(always)]
+    pub fn timer0en(&self) -> TIMER0EN_R {
+        TIMER0EN_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bit 9 - ADC interface clock enable"]
+    #[inline(always)]
+    pub fn adcen(&self) -> ADCEN_R {
+        ADCEN_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 0 - System configuration and comparator clock enable"]
+    #[inline(always)]
+    pub fn cfgcmpen(&self) -> CFGCMPEN_R {
+        CFGCMPEN_R::new((self.bits & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 22 - DBGMCU clock enable"]
+    #[inline(always)]
+    pub fn dbgmcuen(&mut self) -> DBGMCUEN_W {
+        DBGMCUEN_W::new(self)
+    }
+    #[doc = "Bit 18 - TIMER16 timer clock enable"]
+    #[inline(always)]
+    pub fn timer16en(&mut self) -> TIMER16EN_W {
+        TIMER16EN_W::new(self)
+    }
+    #[doc = "Bit 17 - TIMER15 timer clock enable"]
+    #[inline(always)]
+    pub fn timer15en(&mut self) -> TIMER15EN_W {
+        TIMER15EN_W::new(self)
+    }
+    #[doc = "Bit 16 - TIMER14 timer clock enable"]
+    #[inline(always)]
+    pub fn timer14en(&mut self) -> TIMER14EN_W {
+        TIMER14EN_W::new(self)
+    }
+    #[doc = "Bit 14 - USART0 clock enable"]
+    #[inline(always)]
+    pub fn usart0en(&mut self) -> USART0EN_W {
+        USART0EN_W::new(self)
+    }
+    #[doc = "Bit 12 - SPI0 clock enable"]
+    #[inline(always)]
+    pub fn spi0en(&mut self) -> SPI0EN_W {
+        SPI0EN_W::new(self)
+    }
+    #[doc = "Bit 11 - TIMER0 timer clock enable"]
+    #[inline(always)]
+    pub fn timer0en(&mut self) -> TIMER0EN_W {
+        TIMER0EN_W::new(self)
+    }
+    #[doc = "Bit 9 - ADC interface clock enable"]
+    #[inline(always)]
+    pub fn adcen(&mut self) -> ADCEN_W {
+        ADCEN_W::new(self)
+    }
+    #[doc = "Bit 0 - System configuration and comparator clock enable"]
+    #[inline(always)]
+    pub fn cfgcmpen(&mut self) -> CFGCMPEN_W {
+        CFGCMPEN_W::new(self)
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "APB2 enable register (RCU_APB2EN)\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [apb2en](index.html) module"]
+pub struct APB2EN_SPEC;
+impl crate::RegisterSpec for APB2EN_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [apb2en::R](R) reader structure"]
+impl crate::Readable for APB2EN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [apb2en::W](W) writer structure"]
+impl crate::Writable for APB2EN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets APB2EN to value 0"]
+impl crate::Resettable for APB2EN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}
