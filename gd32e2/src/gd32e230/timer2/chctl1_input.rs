@@ -1,0 +1,130 @@
+#[doc = "Register `CHCTL1_Input` reader"]
+pub type R = crate::R<CHCTL1_INPUT_SPEC>;
+#[doc = "Register `CHCTL1_Input` writer"]
+pub type W = crate::W<CHCTL1_INPUT_SPEC>;
+#[doc = "Input capture 2 filter"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPFLT_A;
+#[doc = "Field `CH2CAPFLT` reader - Input capture 2 filter"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPFLT_R as CH2CAPFLT_R;
+#[doc = "Field `CH3CAPFLT` reader - Input capture 3 filter"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPFLT_R as CH3CAPFLT_R;
+#[doc = "Field `CH2CAPFLT` writer - Input capture 2 filter"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPFLT_W as CH2CAPFLT_W;
+#[doc = "Field `CH3CAPFLT` writer - Input capture 3 filter"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPFLT_W as CH3CAPFLT_W;
+#[doc = "Input capture 2 prescaler"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPPSC_A;
+#[doc = "Field `CH2CAPPSC` reader - Input capture 2 prescaler"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPPSC_R as CH2CAPPSC_R;
+#[doc = "Field `CH3CAPPSC` reader - Input capture 3 prescaler"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPPSC_R as CH3CAPPSC_R;
+#[doc = "Field `CH2CAPPSC` writer - Input capture 2 prescaler"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPPSC_W as CH2CAPPSC_W;
+#[doc = "Field `CH3CAPPSC` writer - Input capture 3 prescaler"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0CAPPSC_W as CH3CAPPSC_W;
+#[doc = "Capture/Compare 2 selection"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0MS_A;
+#[doc = "Field `CH2MS` reader - Capture/Compare 2 selection"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0MS_R as CH2MS_R;
+#[doc = "Field `CH3MS` reader - Capture/Compare 3 selection"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0MS_R as CH3MS_R;
+#[doc = "Field `CH2MS` writer - Capture/Compare 2 selection"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0MS_W as CH2MS_W;
+#[doc = "Field `CH3MS` writer - Capture/Compare 3 selection"]
+pub use crate::gd32e230::timer0::chctl0_input::CH0MS_W as CH3MS_W;
+impl R {
+    #[doc = "Bits 0:1 - Capture/Compare 2 selection"]
+    #[inline(always)]
+    pub fn ch2ms(&self) -> CH2MS_R {
+        CH2MS_R::new((self.bits & 3) as u8)
+    }
+    #[doc = "Bits 2:3 - Input capture 2 prescaler"]
+    #[inline(always)]
+    pub fn ch2cappsc(&self) -> CH2CAPPSC_R {
+        CH2CAPPSC_R::new(((self.bits >> 2) & 3) as u8)
+    }
+    #[doc = "Bits 4:7 - Input capture 2 filter"]
+    #[inline(always)]
+    pub fn ch2capflt(&self) -> CH2CAPFLT_R {
+        CH2CAPFLT_R::new(((self.bits >> 4) & 0x0f) as u8)
+    }
+    #[doc = "Bits 8:9 - Capture/Compare 3 selection"]
+    #[inline(always)]
+    pub fn ch3ms(&self) -> CH3MS_R {
+        CH3MS_R::new(((self.bits >> 8) & 3) as u8)
+    }
+    #[doc = "Bits 10:11 - Input capture 3 prescaler"]
+    #[inline(always)]
+    pub fn ch3cappsc(&self) -> CH3CAPPSC_R {
+        CH3CAPPSC_R::new(((self.bits >> 10) & 3) as u8)
+    }
+    #[doc = "Bits 12:15 - Input capture 3 filter"]
+    #[inline(always)]
+    pub fn ch3capflt(&self) -> CH3CAPFLT_R {
+        CH3CAPFLT_R::new(((self.bits >> 12) & 0x0f) as u8)
+    }
+}
+impl W {
+    #[doc = "Bits 0:1 - Capture/Compare 2 selection"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch2ms(&mut self) -> CH2MS_W<CHCTL1_INPUT_SPEC, 0> {
+        CH2MS_W::new(self)
+    }
+    #[doc = "Bits 2:3 - Input capture 2 prescaler"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch2cappsc(&mut self) -> CH2CAPPSC_W<CHCTL1_INPUT_SPEC, 2> {
+        CH2CAPPSC_W::new(self)
+    }
+    #[doc = "Bits 4:7 - Input capture 2 filter"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch2capflt(&mut self) -> CH2CAPFLT_W<CHCTL1_INPUT_SPEC, 4> {
+        CH2CAPFLT_W::new(self)
+    }
+    #[doc = "Bits 8:9 - Capture/Compare 3 selection"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch3ms(&mut self) -> CH3MS_W<CHCTL1_INPUT_SPEC, 8> {
+        CH3MS_W::new(self)
+    }
+    #[doc = "Bits 10:11 - Input capture 3 prescaler"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch3cappsc(&mut self) -> CH3CAPPSC_W<CHCTL1_INPUT_SPEC, 10> {
+        CH3CAPPSC_W::new(self)
+    }
+    #[doc = "Bits 12:15 - Input capture 3 filter"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch3capflt(&mut self) -> CH3CAPFLT_W<CHCTL1_INPUT_SPEC, 12> {
+        CH3CAPFLT_W::new(self)
+    }
+    #[doc = r" Writes raw bits to the register."]
+    #[doc = r""]
+    #[doc = r" # Safety"]
+    #[doc = r""]
+    #[doc = r" Passing incorrect value can cause undefined behaviour. See reference manual"]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.bits = bits;
+        self
+    }
+}
+#[doc = "capture/compare mode register 1 (input mode)\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`chctl1_input::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`chctl1_input::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CHCTL1_INPUT_SPEC;
+impl crate::RegisterSpec for CHCTL1_INPUT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`chctl1_input::R`](R) reader structure"]
+impl crate::Readable for CHCTL1_INPUT_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`chctl1_input::W`](W) writer structure"]
+impl crate::Writable for CHCTL1_INPUT_SPEC {
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+}
+#[doc = "`reset()` method sets CHCTL1_Input to value 0"]
+impl crate::Resettable for CHCTL1_INPUT_SPEC {
+    const RESET_VALUE: Self::Ux = 0;
+}
